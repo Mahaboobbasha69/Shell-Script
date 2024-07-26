@@ -4,7 +4,7 @@ ID=$(id -u)
 
 if [ $ID -ne 0 ]
 then
-echo "you are root user"
+echo "ERROR:: Please run this script with root access"
 else
-echo "you are not root user"
-fi
+echo "you are root user"
+fi # fi means reverse of if, indicating condition end
