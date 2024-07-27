@@ -1,45 +1,46 @@
 #!/bin/bash
 
 ID=$(id -u)
-
-Red="\e[31m"
-Green="\e[32m"
-Yellow="\e[33m"
-Normal="\e[0m"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
 echo "script stareted executing at $TIMESTAMP" &>> $LOGFILE
 
-
-if [$ID -ne 0]
-then
-    echo -e "$Red ERROR:: Please run this script with root access $Normal"
-    exit 1 # you can give other than 0
-else
-    echo -e "$Yellow You are root user"
-fi # fi means reverse of if, indicating condition end
-
-Method_Calling (){
-
+VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$Red Error:: $2.....Failed"
-        exit 1
+        echo -e "$2 ... $R FAILED $N"
     else
-        echo -e "$Green $2 Success"
+        echo -e "$2 ... $G SUCCESS $N"
     fi
 }
 
-for Package in $@
+if [ $ID -ne 0 ]
+then
+    echo -e "$R ERROR:: Please run this script with root access $N"
+    exit 1 # you can give other than 0
+else
+    echo "You are root user"
+fi # fi means reverse of if, indicating condition end
+
+
+#echo "All arguments passed: $@"
+# sudo sh 13.install-package git mysql nginx
+# package=git for first time and second time mysql
+
+for package in $@
 do
-  yum list installed $Package &>> $LOGFILE
-  if [ $? -ne 0 ]
-  then
-      yum install $Package -y &>> $LOGFILE
-      Method_Calling $? "Installing of $Package"
-  else
-      echo -e "$Green Already installed $Package"
-  fi
+    yum list installed $package &>> $LOGFILE #check installed or not
+    if [ $? -ne 0 ] #if not installed
+    then
+        yum install $package -y &>> $LOGFILE # install the package
+        VALIDATE $? "Installation of $package" # validate
+    else
+        echo -e "$package is already installed ... $Y SKIPPING $N"
+    fi
 done
