@@ -37,7 +37,7 @@ do
   yum list installed $Package &>> $LOGFILE
   if [ $? -ne 0 ]
   then
-      yum install $Package -y &>> $LOGFILE
+      yum remove $Package -y &>> $LOGFILE
       Method_Calling $? "Installing of $Package"
   else
       echo -e "$Green Already installed $Package"
