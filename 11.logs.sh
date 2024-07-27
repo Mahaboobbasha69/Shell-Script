@@ -2,39 +2,39 @@
 
 ID=$(id -u)
 
-R=/e[31m
-G=/e[32m
-y=/e[33m
-N=/e[0m
+R="/e[31m"
+G="/e[32m"
+y="/e[33m"
+N="/e[0m"
 
 Time_Stamp=$($y date +%F-%H-%M-%S) #TIMESTAMP=$(date +%F-%H-%M-%S)
 
 LOGFILE="/tmp/$0-$Time_Stamp.log"
 
-echo "Script started execution at $R $Time_Stamp" $N &>> $LOGFILE
+echo -e "Script started execution at $R $Time_Stamp" $N &>> $LOGFILE
 
 if [ $ID -ne 0 ]
 then
-    echo "$R You are not a root user 'please run into root user'"
+    echo -e "$R You are not a root user 'please run into root user'"
     exit 1
 else 
-    echo "you are $G root user"
+    echo -e "you are $G root user"
 fi
 
 Method_Calling (){
     if [ $1 -ne 0 ]
     then
-        echo "$2....$R Failed"
+        echo -e "$2....$R Failed"
         exit 1
     else
-        echo "$2  $G Success"
+        echo -e "$2  $G Success"
     fi
 }
 
-yum install mysql -y &>> $LOGFILE
+yum install mysql &>> $LOGFILE
 
 Method_Calling $? "$G Mysql  $N installed" # here calling main method, if incase failed install mysql
 
-yum install git -y &>> $LOGFILE
+yum install git &>> $LOGFILE
 
 Method_Calling $? "$G git $N installed"
