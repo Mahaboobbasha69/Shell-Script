@@ -37,4 +37,4 @@ Method_Calling $? "$G Mysql  $N installed" # here calling main method, if incase
 
 yum install gitsd &>> $LOGFILE
 
-Method_Calling $? "$y git $N installed"
+Method_Calling $? "$G git $N installed"
