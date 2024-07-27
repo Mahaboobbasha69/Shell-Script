@@ -4,7 +4,7 @@ ID=$(id -u)
 
 Time_Stamp=$(date +%F-%H-%M-%s)
 
-LOGFILE="/temp/$0-Time_Stamp.log"
+LOGFILE="/tmp/$0-Time_Stamp.log"
 
 echo "Script started execution at $Time_Stamp" &>> $LOGFILE
 
