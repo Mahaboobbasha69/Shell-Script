@@ -18,17 +18,17 @@ then
     echo -e "$Red ERROR:: Please run this script with root access $Normal"
     exit 1 # you can give other than 0
 else
-    echo "You are root user"
+    echo -e "$Yellow You are root user"
 fi # fi means reverse of if, indicating condition end
 
 Method_Calling (){
 
     if [ $1 -ne 0 ]
     then
-        echo "$Red Error:: $2.....Failed"
+        echo -e "$Red Error:: $2.....Failed"
         exit 1
     else
-        echo "$Green $2.....Success"
+        echo -e "$Green $2.....Success"
     fi
 }
 
@@ -40,6 +40,6 @@ do
       yum install $Package -y &>> $LOGFILE
       Method_Calling $? "Installing of $Package"
   else
-      echo "$Green Already installed $Package"
+      echo -e "$Green Already installed $Package"
   fi
 done 
