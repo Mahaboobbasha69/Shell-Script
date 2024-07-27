@@ -24,7 +24,7 @@ fi
 Method_Calling (){
     if [ $1 -ne 0 ]
     then
-        echo -e "Error::$2....$R Failed"
+        echo -e " $R Error::$2....$R Failed"
         exit 1
     else
         echo -e "$2......$G Success"
