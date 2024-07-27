@@ -33,8 +33,8 @@ Method_Calling (){
 
 yum install mysql &>> $LOGFILE
 
-Method_Calling $? "$G Mysql  $N installed" # here calling main method, if incase failed install mysql
+Method_Calling $? "$y Mysql  $N installed" # here calling main method, if incase failed install mysql
 
 yum install git &>> $LOGFILE
 
-Method_Calling $? "$G git $N installed"
+Method_Calling $? "$y git $N installed"
