@@ -2,7 +2,7 @@
 
 ID=$(id -u)
 
-Time_Stamp=$(date +%F-%H-%M-%s)
+Time_Stamp=$(date +%F-%H-%M-%S)
 
 LOGFILE="/tmp/$0-$Time_Stamp.log"
 
