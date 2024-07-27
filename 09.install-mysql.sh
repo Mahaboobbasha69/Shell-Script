@@ -10,11 +10,11 @@ else
 echo "you are root user"
 fi # fi means reverse of if, indicating condition end
 
-yum install mysqlwq -y 
+yum install mysql -y 
 
 if [ $? -ne 0 ]
 then
-echo "Error:: Not installing can you recheck the code"
+echo "Error:: Not installing can you recheck the code again"
 exit 1 
 else
 echo "Mysql installing Success"
