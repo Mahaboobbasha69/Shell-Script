@@ -2,10 +2,10 @@
 
 ID=$(id -u)
 
-R="/e[31m"
-G="/e[32m"
-y="/e[33m"
-N="/e[0m"
+R="\e[31m"
+G="\e[32m"
+y="\e[33m"
+N="\e[0m"
 
 Time_Stamp=$(date +%F-%H-%M-%S) #TIMESTAMP=$(date +%F-%H-%M-%S)
 
@@ -24,10 +24,10 @@ fi
 Method_Calling (){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2....$R Failed"
+        echo -e "Error::$2....$R Failed"
         exit 1
     else
-        echo -e "$2  $G Success"
+        echo -e "$2......$G Success"
     fi
 }
 
