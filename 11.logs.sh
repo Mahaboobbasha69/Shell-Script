@@ -7,7 +7,7 @@ G="/e[32m"
 y="/e[33m"
 N="/e[0m"
 
-Time_Stamp=$($y date +%F-%H-%M-%S) #TIMESTAMP=$(date +%F-%H-%M-%S)
+Time_Stamp=$(date +%F-%H-%M-%S) #TIMESTAMP=$(date +%F-%H-%M-%S)
 
 LOGFILE="/tmp/$0-$Time_Stamp.log"
 
