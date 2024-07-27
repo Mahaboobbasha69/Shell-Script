@@ -35,6 +35,6 @@ yum install mysql &>> $LOGFILE
 
 Method_Calling $? "$G Mysql  $N installed" # here calling main method, if incase failed install mysql
 
-yum install gitsa &>> $LOGFILE
+yum install git &>> $LOGFILE
 
-Method_Calling $? "$G git $N installed"
+Method_Calling $? "$y git $N installed"
