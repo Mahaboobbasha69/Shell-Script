@@ -20,7 +20,7 @@ Method_Calling (){
     fi
 }
 
-yum install mysqle -y
+yum install mysql -y
 
 Method_Calling $? "Mysql installed" # here calling main method, if incase failed install mysql
 
