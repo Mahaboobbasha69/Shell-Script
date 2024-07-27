@@ -34,10 +34,10 @@ Method_Calling (){
 
 for Package in $@
 do
-  yum remove $Package &>> $LOGFILE
+  yum list installed $Package &>> $LOGFILE
   if [ $? -ne 0 ]
   then
-      yum remove $Package -y &>> $LOGFILE
+      yum install $Package -y &>> $LOGFILE
       Method_Calling $? "Installing of $Package"
   else
       echo -e "$Green Already installed $Package"
