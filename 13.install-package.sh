@@ -22,7 +22,7 @@ Method_Calling (){
     fi
 }
 
-for $Package in $@
+for Package in $@
 do
   yum installed $Package
   if [ $? -ne 0 ]
@@ -32,4 +32,4 @@ do
   else
       echo "Already installed $Package"
   fi
-done  
+done 
