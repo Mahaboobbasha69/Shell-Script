@@ -6,6 +6,8 @@ Time_Stamp=$(date +%F-%H-%M-%s)
 
 LOGFILE="/temp/$0-Time_Stamp.log"
 
+echo "Script started execution at $Time_Stamp" &>> $LOGFILE
+
 if [ $ID -ne 0 ]
 then
     echo "You are not a root user 'please run into root user'"
@@ -24,10 +26,10 @@ Method_Calling (){
     fi
 }
 
-yum install mysql -y
+yum install mysql -y &>> $LOGFILE
 
 Method_Calling $? "Mysql installed" # here calling main method, if incase failed install mysql
 
-yum install git -y
+yum install git -y &>> $LOGFILE
 
 Method_Calling $? "git installed"
