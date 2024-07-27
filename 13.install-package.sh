@@ -28,13 +28,13 @@ Method_Calling (){
         echo -e "$Red Error:: $2.....Failed"
         exit 1
     else
-        echo -e "$Green $2.....Success"
+        echo -e "$Green $2 Success"
     fi
 }
 
 for Package in $@
 do
-  yum installed $Package &>> $LOGFILE
+  yum list installed $Package &>> $LOGFILE
   if [ $? -ne 0 ]
   then
       yum install $Package -y &>> $LOGFILE
@@ -42,4 +42,4 @@ do
   else
       echo -e "$Green Already installed $Package"
   fi
-done 
+done
