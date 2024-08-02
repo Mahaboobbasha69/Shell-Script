@@ -22,6 +22,7 @@ while getopts ":n:w:h" opt; do #getopts is a options ":n:w:h", this is one consp
 done
 
 #if [ -z "$NAME" ] || [ -z "$WISHES" ]; then
+#-z is a empty, if incase we will give without name. it will throw the error
 if [ -z "$NAME" ]; then # now wishes is optional
     #echo "ERROR: Both -n and -w are mandatory options."
     echo "ERROR: -n is mandatory."
