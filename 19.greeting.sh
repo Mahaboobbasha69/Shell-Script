@@ -11,7 +11,7 @@ USAGE(){
     echo " -h, Display Help and exit"
 }
 
-while getopts ":n:w:h" opt; do
+while getopts ":n:w:h" opt; do #getopts is a options ":n:w:h", this is one conspect.
     case $opt in
         n) NAME="$OPTARG";;
         w) WISHES="$OPTARG";;
