@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ID=$(id -u)
+ID=$(id -u)#it will fetch the user id, root user id is 0 every time
 
 if [ $ID -ne 0 ]
 then
